@@ -1,9 +1,8 @@
 # A Quick Guide to Set Up Tezos Baker on Vultr
 
-\* *Updated: May 2nd, 2020*
-
 #### Disclaimer:
 
+\* *Last Updated: May 2nd, 2020*\
 \* *This guide assumes readers have some familiarity with IT system administration (comfortable using command-line in Unix-like environment)*\
 \* *TODO: Add more here*
 
