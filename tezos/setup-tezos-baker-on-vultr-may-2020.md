@@ -64,18 +64,18 @@ $ ssh root@123.123.123.123 # enter password for `root` obtained from previous st
 root@xtzbaker:~$
 ```
 
-**Step 4: Create a sudo user for future remote access & running baking**
+**Step 4: Create a sudo user for future access & baking**
 
-* Once you are in the remote server, create a sudo user that you will gain remote access in the future and have priviledges to run baking. [Click here for tutorial](https://www.digitalocean.com/community/tutorials/how-to-create-a-sudo-user-on-ubuntu-quickstart). (eg. a sudo user named `baker`). This user will require a new password during creation.
+* Create a sudo user inside the remote server to gain remote access in the future (as well as server priviledges to run baking). [Click here for tutorial](https://www.digitalocean.com/community/tutorials/how-to-create-a-sudo-user-on-ubuntu-quickstart). (eg. a sudo user named `baker`). This user will require a new password during creation.
 * You should NOT remotely access **root** user from now on. It's not recommended from security standpoint.
 * Once you have a sudo user (eg. `baker`), you can exit the remote server by `CTRL+D` or typing `exit` on server command line, and then test remote access again but this time using the newly created sudo user.
 
 ```bash
-ssh baker@<IP_ADDRESS> # replace `baker` with your created user's name
+$ ssh baker@123.123.123.123 # replace `baker` with your created user's name, replace 123.123.123.123 with your server IP Address, type password when prompted
 
-# You will be prompted to enter password for this sudo user `baker`.
 # If access granted, you will be inside the remote server under user `baker`.
 # This is the RECOMMENDED remote access from now on.
+baker@xtzbaker:~$
 ```
 
 ## II. Install Tezos Blockchain
