@@ -87,7 +87,7 @@ baker@xtzbaker:~$
 **Step 1: Access to Vultr remote server from your home computer**
 
 ```bash
-ssh baker@<IP_ADDRESS> # type password when prompted
+$ ssh baker@123.123.123.123 # replace 123.123.123.123 with your server IP address, type password when prompted
 ```
 
 **Step 2: Install necessary libraries to build & run Tezos blockchain from source code**
@@ -96,17 +96,17 @@ ssh baker@<IP_ADDRESS> # type password when prompted
 # Copy and paste one by one each command below
 # Type password for user `baker` if prompted
 
-sudo apt-get update
+baker@xtzbaker:~$ sudo apt-get update
 
-sudo apt-get upgrade
+baker@xtzbaker:~$ sudo apt-get upgrade
 
-sudo apt install -y rsync git m4 build-essential patch unzip bubblewrap wget pkg-config libgmp-dev libev-dev libhidapi-dev which
+baker@xtzbaker:~$ sudo apt install -y rsync git m4 build-essential patch unzip bubblewrap wget pkg-config libgmp-dev libev-dev libhidapi-dev which
 
-wget https://github.com/ocaml/opam/releases/download/2.0.3/opam-2.0.3-x86_64-linux
+baker@xtzbaker:~$ wget https://github.com/ocaml/opam/releases/download/2.0.3/opam-2.0.3-x86_64-linux
 
-sudo cp opam-2.0.3-x86_64-linux /usr/local/bin/opam
+baker@xtzbaker:~$ sudo cp opam-2.0.3-x86_64-linux /usr/local/bin/opam
 
-sudo chmod a+x /usr/local/bin/opam
+baker@xtzbaker:~$ sudo chmod a+x /usr/local/bin/opam
 ```
 
 **Step 3: Download Tezos blockchain source code**
@@ -114,11 +114,11 @@ sudo chmod a+x /usr/local/bin/opam
 ```bash
 # Copy and paste one by one each command below
 
-git clone https://gitlab.com/Tezos/Tezos.git
+baker@xtzbaker:~$ git clone https://gitlab.com/Tezos/Tezos.git
 
-cd Tezos
+baker@xtzbaker:~$ cd Tezos
 
-git checkout mainnet
+baker@xtzbaker:~/Tezos$ git checkout mainnet
 ```
 
 **Step 4: Build Tezos blockchain from source code**
@@ -127,25 +127,25 @@ git checkout mainnet
 # Copy and paste one by one each command below
 # Each command below may take a while to complete
 
-opam init --bare # you should be asked 2 questions at this step, both answers should be N (No)
+baker@xtzbaker:~/Tezos$ opam init --bare # you should be asked 2 questions at this step, both answers should be N (No)
 
-make build-deps
+baker@xtzbaker:~/Tezos$ make build-deps
 
-eval $(opam env)
+baker@xtzbaker:~/Tezos$ eval $(opam env)
 
-make
+baker@xtzbaker:~/Tezos$ make
 ```
 
 **Step 5: Set up Tezos environment for future use (baking)**
 
 ```bash
-export PATH=~/Tezos:$PATH
+baker@xtzbaker:~/Tezos$ export PATH=~/Tezos:$PATH
 
-source ./src/bin_client/bash-completion.sh
+baker@xtzbaker:~/Tezos$ source ./src/bin_client/bash-completion.sh
 
-sudo echo 'export TEZOS_CLIENT_UNSAFE_DISABLE_DISCLAIMER=Y' >> ~/.bashrc # Remove repeated disclaimer message whenever interacting with Tezos command line
+baker@xtzbaker:~/Tezos$ sudo echo 'export TEZOS_CLIENT_UNSAFE_DISABLE_DISCLAIMER=Y' >> ~/.bashrc # Remove repeated disclaimer message whenever interacting with Tezos command line
 
-source ~/.bashrc
+baker@xtzbaker:~/Tezos$ source ~/.bashrc
 ```
 
 ## IV. References
