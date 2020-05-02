@@ -23,38 +23,45 @@
 **Step 2: Login and go to https://my.vultr.com/deploy/ to deploy a cloud instance**
 
 * Choose Server: **Cloud Compute** (general purpose server)
-* Server Location: **Singapore** (closest to where I live to get stable remote access)
+* Choose Server Location: **Singapore** (closest to where you live to get stable remote access)
 
-<img src="setup-tezos-baker-on-vultr-images/deploy-a-vultr-instance-choose-server-and-location.png" height="500" width="590">
+<img src="setup-tezos-baker-on-vultr-images/deploy-a-vultr-instance-choose-server-and-location.png" height="500" width="590" />
 
-* Server Type: **Ubuntu 18.04 x64** (a popular OS)
-* Server Size: **80 GB SSD, 2 CPU, 4096MB RAM** (best deal for baking purpose)
+<br />
 
-<img src="setup-tezos-baker-on-vultr-images/deploy-a-vultr-instance-choose-server-type-and-size.png" height="500" width="590">
+* Choose Server Type: **Ubuntu 18.04 x64** (a popular OS)
+* Choose Server Size: **80 GB SSD, 2 CPU, 4096MB RAM** (best deal for baking purpose)
 
-* Leave Additional Features as is **(all unchecked)**
-* Add **SSH keys** to gain access from your home computer (laptop) to this remote server (**Add New** if you have not done before). [Click here for tutorial](https://www.vultr.com/docs/how-do-i-generate-ssh-keys).
-* Enter your desired Server **Hostname** and **Label** (eg. xtzbaker)
+<img src="setup-tezos-baker-on-vultr-images/deploy-a-vultr-instance-choose-server-type-and-size.png" height="500" width="590" />
+
+<br />
+
+* Leave **Additional Features** as is (all unchecked)
+* Add **SSH keys** to gain access from your home computer to this remote server (**Add New** if you have not done before). [Click here for tutorial](https://www.vultr.com/docs/how-do-i-generate-ssh-keys).
+* Enter your desired Server **Hostname** and **Label** (eg. `xtzbaker`)
 * Click button **Deploy Now** on the bottom right to launch the cloud instance
 
-<img src="setup-tezos-baker-on-vultr-images/deploy-a-vultr-instance-choose-ssh-keys.png" height="500" width="590">
+<img src="setup-tezos-baker-on-vultr-images/deploy-a-vultr-instance-choose-ssh-keys.png" height="500" width="590" />
+
+<br />
 
 * You will be redirected to this page, the status should be **Deploying** or **Running**.
 * On the web UI, you can click on the server (`xtzbaker` in this case) to see the **IP Address**. Record this IP Address for frequent future use.
 * Also note the password for root user (used in next step). This root password can only be found here on the web UI.
 
-<img src="setup-tezos-baker-on-vultr-images/deploy-a-vultr-instance-deploying.png" height="500" width="590">
+<img src="setup-tezos-baker-on-vultr-images/deploy-a-vultr-instance-deploying.png" height="500" width="590" />
 
-**Step 3: Test remote access from your home computer (laptop)**
+<br />
 
-* Open a terminal and accessing using ssh (assuming you are on a Unix-like home computer)
+**Step 3: Test remote access from your home computer**
+
+* Open a terminal, and use ssh to access (you should be on a Unix-like home computer)
 
 ```bash
-ssh root@<IP_ADDRESS>
+$ ssh root@123.123.123.123 # enter password for `root` obtained from previous step, replace 123.123.123.123 with your server IP Address
 
-# You will be prompted to enter password.
-# Enter the password for root noted from the previous step.
-# If access granted, you will be inside the remote server command line.
+# if granted access, you should be inside the remote server command line
+root@xtzbaker:~$
 ```
 
 **Step 4: Create a sudo user for future remote access & running baking**
