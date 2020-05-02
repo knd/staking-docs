@@ -2,7 +2,10 @@
 
 \* *Updated: May 2nd, 2020*
 
-\* *This guide assumes readers have some familiarity with IT system administration (comfortable using command-line in Unix-like environment)*
+#### Disclaimer:
+
+\* *This guide assumes readers have some familiarity with IT system administration (comfortable using command-line in Unix-like environment)*\
+\* *TODO: Add more here*
 
 ##### Table of Contents
 [I. Deploy a Clould Instance (Server)](#deployAnInstance)\
