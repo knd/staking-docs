@@ -72,6 +72,77 @@ ssh baker@<IP_ADDRESS> # replace `baker` with your created user's name
 # This is the RECOMMENDED remote access from now on.
 ```
 
+## II. Install Tezos Blockchain
+
+<a name="installTezosBlockchain"></a>
+
+\* *For demo convenience, sudo user `baker` and hostname `xtzbaker` will be used in the following commands.*
+
+**Step 1: Access to Vultr remote server from your home computer**
+
+```bash
+ssh baker@<IP_ADDRESS> # type password when prompted
+```
+
+**Step 2: Install necessary libraries to build & run Tezos blockchain from source code**
+
+```bash
+# Copy and paste one by one each command below
+# Type password for user `baker` if prompted
+
+sudo apt-get update
+
+sudo apt-get upgrade
+
+sudo apt install -y rsync git m4 build-essential patch unzip bubblewrap wget pkg-config libgmp-dev libev-dev libhidapi-dev which
+
+wget https://github.com/ocaml/opam/releases/download/2.0.3/opam-2.0.3-x86_64-linux
+
+sudo cp opam-2.0.3-x86_64-linux /usr/local/bin/opam
+
+sudo chmod a+x /usr/local/bin/opam
+```
+
+**Step 3: Download Tezos blockchain source code**
+
+```bash
+# Copy and paste one by one each command below
+
+git clone https://gitlab.com/Tezos/Tezos.git
+
+cd Tezos
+
+git checkout mainnet
+```
+
+**Step 4: Build Tezos blockchain from source code**
+
+```bash
+# Copy and paste one by one each command below
+# Each command below may take a while to complete
+
+opam init --bare # you should be asked 2 questions at this step, both answers should be N (No)
+
+make build-deps
+
+eval $(opam env)
+
+make
+```
+
+**Step 5: Set up Tezos environment for future use (baking)**
+
+```bash
+export PATH=~/Tezos:$PATH
+
+source ./src/bin_client/bash-completion.sh
+
+sudo echo 'export TEZOS_CLIENT_UNSAFE_DISABLE_DISCLAIMER=Y' >> ~/.bashrc # Remove repeated disclaimer message whenever interacting with Tezos command line
+
+source ~/.bashrc
+```
+
 ## IV. References
 
-[1] [Tezos official docs (https://tezos.gitlab.io/index.html)](https://tezos.gitlab.io/index.html)
+[1] [Tezos official docs (https://tezos.gitlab.io/index.html)](https://tezos.gitlab.io/index.html)\
+[2] [Tezos Southeast Asia tutorial (https://www.tezos.org.sg/the-berry-good-guide-to-setting-up-tezos-node-baker-using-raspberry-pi-ubuntu/)](https://www.tezos.org.sg/the-berry-good-guide-to-setting-up-tezos-node-baker-using-raspberry-pi-ubuntu/)
