@@ -14,7 +14,7 @@
 
 <a name="deployAnInstance"></a>
 
-If you have used Vultr to run a server before, skip to **Step 2**.
+\* *If you have used Vultr to run a server before, skip to **Step 2**.*
 
 **Step 1: Go to https://www.vultr.com/ to register an account, and update billing information**
 
@@ -37,20 +37,21 @@ If you have used Vultr to run a server before, skip to **Step 2**.
 
 <img src="setup-tezos-baker-on-vultr-images/deploy-a-vultr-instance-choose-ssh-keys.png" height="500" width="590">
 
-* You will be redirected to this page, wait until status is **Running**.
-* While status is still **Running**, you can click on the server to see the **IP Address**. Record this IP Address for frequent future use.
-* Also note the password for root user (used in next step).
+* You will be redirected to this page, the status should be **Deploying** or **Running**.
+* On the web UI, you can click on the server (`xtzbaker` in this case) to see the **IP Address**. Record this IP Address for frequent future use.
+* Also note the password for root user (used in next step). This root password can only be found here on the web UI.
 
 <img src="setup-tezos-baker-on-vultr-images/deploy-a-vultr-instance-deploying.png" height="500" width="590">
 
-**Step 3: Test remote accessing from your home computer (laptop)**
+**Step 3: Test remote access from your home computer (laptop)**
 
 * Open a terminal and accessing using ssh (assuming you are on a Unix-like home computer)
 
 ```bash
 ssh root@<IP_ADDRESS>
 
-# You will be prompted to enter password. Enter the password from above.
+# You will be prompted to enter password.
+# Enter the password for root noted from the previous step.
 # If access granted, you will be inside the remote server command line.
 ```
 
@@ -64,7 +65,7 @@ ssh root@<IP_ADDRESS>
 ssh baker@<IP_ADDRESS> # replace `baker` with your created user's name
 
 # You will be prompted to enter password for this sudo user `baker`.
-# If access granted, you will be inside the remote server command line under user baker.
+# If access granted, you will be inside the remote server under user `baker`.
 # This is the RECOMMENDED remote access from now on.
 ```
 
