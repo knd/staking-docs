@@ -14,7 +14,7 @@
 
 <a name="deployAnInstance"></a>
 
-If you have used Vultr to run a server before, skip to **Step 4**.
+If you have used Vultr to run a server before, skip to **Step 2**.
 
 **Step 1: Go to https://www.vultr.com/ to register an account, and update billing information**
 
@@ -43,7 +43,9 @@ If you have used Vultr to run a server before, skip to **Step 4**.
 
 <img src="setup-tezos-baker-on-vultr-images/deploy-a-vultr-instance-deploying.png" height="500" width="590">
 
-* Test remote accessing from your home computer (laptop). Open a terminal and accessing using ssh (assuming you are on a Unix-like home computer)
+**Step 3: Test remote accessing from your home computer (laptop)**
+
+* Open a terminal and accessing using ssh (assuming you are on a Unix-like home computer)
 
 ```bash
 ssh root@<IP_ADDRESS>
@@ -52,7 +54,9 @@ ssh root@<IP_ADDRESS>
 # If access granted, you will be inside the remote server command line.
 ```
 
-* Once you are in the remote server, create a sudo user that you will gain remote access in the future and have priviledges to process baking. [Click here for tutorial](https://www.digitalocean.com/community/tutorials/how-to-create-a-sudo-user-on-ubuntu-quickstart). (eg. a sudo user named `baker`). This user will require a new password during creation.
+**Step 4: Create a sudo user for future remote access & running baking**
+
+* Once you are in the remote server, create a sudo user that you will gain remote access in the future and have priviledges to run baking. [Click here for tutorial](https://www.digitalocean.com/community/tutorials/how-to-create-a-sudo-user-on-ubuntu-quickstart). (eg. a sudo user named `baker`). This user will require a new password during creation.
 * You should NOT remotely access **root** user from now on. It's not recommended from security standpoint.
 * Once you have a sudo user (eg. `baker`), you can exit the remote server by `CTRL+D` or typing `exit` on server command line, and then test remote access again but this time using the newly created sudo user.
 
